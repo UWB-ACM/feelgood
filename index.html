@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>feelgood</title>
+    <link rel="stylesheet" href="main.css"/>
+    <script src = "app.js"></script>
+    <noscript>You need to enable JavaScript to use the full functionality of the site.</noscript>
+</head>
+<body>
+<h1>FeelGood</h1>
+<h3>Subscribe here to get wholesome messages delivered to your phone!</h3>
+<h4>FeelGood has a variety of different subscriptions available, including:</h4>
+<h5>
+    <ul>
+        <li>FeelGood: wholesome messages to start your day off right</li>
+        <li>FeelBad: unfortunate messages to start your day off wrong</li>
+        <li>FeelCAWW: CAW CAAAAW CAAWW CAAW CAW CAAAAWW CAAWW</li>
+        <li>FeelHydrate: periodic reminders to drink water</li>
+    </ul>
+</h5>
+<label for="phone-input">Enter your 10 digit phone number in the field below with no dashes or spaces:</label><br/>
+<input type="tel" id="phone-input" placeholder="Enter phone number" class="form-control" style="width:30%;"/><br/><br/>
+<label for="topic-select">Select which type of message you would like to subscribe to:</label>
+<form id="topic-select" method="post">
+    <input type="radio" id="good" name="topic" value="main_topic">
+    <label for="good">FeelGood</label><br>
+    <input type="radio" id="bad" name="topic" value="bad_topic">
+    <label for="bad">FeelBad</label><br>
+    <input type="radio" id="crob" name="topic" value="crob_topic">
+    <label for="crob">FeelCrob</label><br>
+    <input type="radio" id="hydrate" name="topic" value="hydrate_topic">
+    <label for="hydrate">FeelHydrate</label><br>
+    <button type="button" onClick="submitToAPI(event)" class="btn btn-lg" style="margin-top:20px;">Subscribe</button>
+</form>
+</body>
+</html>
