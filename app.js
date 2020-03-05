@@ -39,7 +39,7 @@ function submitToAPI(e) {
 }
 
 function resetFields() {
-    document.getElementById("phone-input").reset();
+    document.getElementById("phone-input").value = "";
     document.getElementById("topic-select").reset();
     location.reload();
 }
