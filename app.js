@@ -17,7 +17,7 @@ function submitToAPI(e) {
             type: "POST",
             url: "https://djjqpcoffj.execute-api.us-west-2.amazonaws.com/prod/",
             dataType: "json",
-            crossDomain: "true",
+            crossDomain: true,
             contentType: "application/json; charset=utf-8",
             data: JSON.stringify(data),
 
