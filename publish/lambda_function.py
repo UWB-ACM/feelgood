@@ -2,6 +2,7 @@ import json
 import boto3
 import random
 import re
+import os
 
 def lambda_handler(event, context):
     client = boto3.client('sns')
