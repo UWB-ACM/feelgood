@@ -2,8 +2,16 @@ function submitToAPI(e) {
     e.preventDefault();
 
     const phoneVal = document.getElementById("phone-input").value;
-    const topicVal = document.getElementById("topic-select").value;
-
+    const topics = document.getElementById("topic-select");
+    let topicVal;
+    for (let i = 0; i < topics.length; i++)
+    {
+        if (topics[i].checked)
+        {
+            topicVal = topics[i].value;
+            break;
+        }
+    }
     const tel_regex = /[0-9]{10}/;
     if (tel_regex.test(phoneVal)) {
         var full_phone = '+1';
@@ -12,7 +20,6 @@ function submitToAPI(e) {
             number: full_phone,
             topic: topicVal
         };
-
         $.ajax({
             type: "POST",
             url: "https://djjqpcoffj.execute-api.us-west-2.amazonaws.com/prod/",
