@@ -130,7 +130,19 @@ We used to the following resources as a guide for configuring S3 buckets to host
 
 ### API Gateway
 
-More info coming soon.
+There are multiple types of APIs that can be built using API Gateway, such as REST, HTTP, or WebSocket. This document will focus specifically on REST APIs. AWS' API Gateway documentation has a [helpful tutorial that covers creating a REST API with Lambda Integrations](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-getting-started-with-rest-apis.html). This was the approach taken for FeelGood.
+
+#### Create a Resource
+A resource is something that can be accessed through the REST API using CRUD operations. GCP has a good [explanation of REST APIs and resources](https://cloud.google.com/apis/design/resources) if you are unfamiliar with the concept or would like to refresh your memory. In API Gateway, the resource also represents your endpoint. For example, on a hypothetical website for a car dealership, the URL might be `www.cars.com/buycar`. The endpoint in this scenario is `/buycar`. Each endpoint has its own set of methods.
+
+#### Create a Method
+A method is the actual operation to be performed on the resource, such as GET, PUT, POST, DELETE, etc. The method's settings are where integrations with Lambda functions including input pass-through are set. See the [API Gateway page on REST API methods](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-method-settings.html) for a detailed tutorial.
+
+#### Setup CORS
+CORS stands for Cross-Origin Resource Sharing. This is required to tell your browser that it is safe to access certain API endpoints. Whether or not CORS is required depends on what the API does. See [Mozilla's MDN Docs on CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) for more information on what it is and why it's needed. See [API Gateway Docs on Enabling CORS for REST APIs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-cors.html) for a tutorial on enabling CORS.
+
+#### Deploy the API
+Once everything is setup correctly, all that's left is to deploy the API. You can create **stages** like "staging" and "production" and deploy different versions on the API to each stage. It is recommended to deploy a staging version of the API for testing before deployed the production version of the API for use in an application. *Note that the name of the stage will be part of the endpoint URL*. See [API Gateway Docs on Deploying a REST API](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-deploy-api.html) for a detailed walkthrough.
 
 ### Lambda
 
